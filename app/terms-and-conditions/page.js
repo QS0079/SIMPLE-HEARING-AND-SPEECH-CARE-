@@ -46,7 +46,7 @@ export default function TermsAndConditionsPage() {
                 style={{
                   fontSize: "clamp(1.25rem, 3vw, 1.55rem)",
                   fontWeight: "700",
-                  color: "#b81e64",
+                  color: "var(--ink)",
                   marginBottom: "16px",
                   letterSpacing: "-0.015em",
                   lineHeight: 1.3,
@@ -63,11 +63,6 @@ export default function TermsAndConditionsPage() {
                       {sec.num}. {sec.title}
                     </h3>
                     <p className="legal-section__body">{sec.body}</p>
-                    {sec.highlight && (
-                      <div className="legal-callout">
-                        <strong>Important:</strong> A {sec.highlight}.
-                      </div>
-                    )}
                   </section>
                 ))}
               </div>

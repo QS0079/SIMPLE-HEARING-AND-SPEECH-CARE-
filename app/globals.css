@@ -1528,7 +1528,7 @@ p {
   padding-bottom: 80px;
 }
 .legal-hero {
-  background: linear-gradient(135deg, #18212e 0%, #30142b 50%, #121a24 100%);
+  background: linear-gradient(135deg, #18212e 0%, #0f172a 100%);
   position: relative;
   padding-top: calc(var(--header-h) + 40px);
   padding-bottom: 84px;
@@ -1622,7 +1622,7 @@ p {
 .legal-section__heading {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #b81e64;
+  color: var(--ink);
   margin-bottom: 10px;
   letter-spacing: -0.015em;
   line-height: 1.35;
@@ -1635,35 +1635,25 @@ p {
 .legal-points {
   list-style: none;
   padding: 0;
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   display: grid;
-  gap: 10px;
+  gap: 16px;
 }
 .legal-point-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 15px;
+  gap: 14px;
+  font-size: 15.5px;
   color: #334155;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 .legal-point-bullet {
   flex: none;
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #b81e64;
-  margin-top: 8px;
-}
-.legal-callout {
-  background: #fffbeb;
-  border-left: 4px solid var(--yellow);
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-top: 12px;
-  font-weight: 500;
-  color: #92400e;
-  font-size: 14.5px;
+  background: #d97706;
+  margin-top: 9px;
 }
 .legal-paragraphs {
   display: flex;

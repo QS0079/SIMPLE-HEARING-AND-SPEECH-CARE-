@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
                 style={{
                   fontSize: "clamp(1.25rem, 3vw, 1.55rem)",
                   fontWeight: "700",
-                  color: "#b81e64",
+                  color: "var(--ink)",
                   marginBottom: "16px",
                   letterSpacing: "-0.015em",
                   lineHeight: 1.3,
@@ -74,26 +74,14 @@ export default function PrivacyPolicyPage() {
                 )}
               </p>
 
-              <div className="legal-sections">
-                {privacyPolicy.sections.map((sec) => (
-                  <section key={sec.num} className="legal-section">
-                    <h3 className="legal-section__heading">
-                      {sec.num}. {sec.title}
-                    </h3>
-                    <p className="legal-section__body">{sec.body}</p>
-                    {sec.points && sec.points.length > 0 && (
-                      <ul className="legal-points">
-                        {sec.points.map((pt, i) => (
-                          <li key={i} className="legal-point-item">
-                            <span className="legal-point-bullet" aria-hidden="true" />
-                            <span>{pt}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </section>
+              <ul className="legal-points">
+                {privacyPolicy.points.map((pt, i) => (
+                  <li key={i} className="legal-point-item">
+                    <span className="legal-point-bullet" aria-hidden="true" />
+                    <span>{pt}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               <div className="legal-meta">
                 <svg
