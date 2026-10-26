@@ -48,25 +48,63 @@ function Hero() {
           <p className="hero__intro" data-reveal>{hero.intro}</p>
           <p className="hero__body" data-reveal>{hero.body}</p>
           <div className="hero__ctas" data-reveal>
-            <EnquiryButton>{hero.cta}</EnquiryButton>
+            <EnquiryButton>
+              <span>{hero.cta}</span>
+              <Icon name="arrowRight" size={16} />
+            </EnquiryButton>
             <a href={clinic.phoneHref} className="btn btn--ghost-light">
               <Icon name="phone" size={17} />
               <span>{clinic.phoneDisplay}</span>
             </a>
           </div>
-          <p className="hero__note" data-reveal>{hero.note}</p>
+          <div className="hero__note" data-reveal>
+            <span className="hero__note-pulse" aria-hidden="true" />
+            <span>{hero.note}</span>
+          </div>
         </div>
 
         <div className="hero__visual" data-reveal>
-          <div className="hero__card">
-            <div className="hero__image-wrap">
+          {/* Architectural Background Aura with Acoustic Rings */}
+          <div className="hero__aura" aria-hidden="true">
+            <div className="hero__aura-ring hero__aura-ring--1" />
+            <div className="hero__aura-ring hero__aura-ring--2" />
+          </div>
+
+          {/* Primary Arch Frame (Joyful Pediatric Breakthrough) */}
+          <div className="hero__frame-main">
+            <div className="hero__arch-img">
               <Image
                 src={hero.images.main.src}
                 alt={hero.images.main.alt}
                 fill
                 priority
-                sizes="(max-width: 900px) 90vw, 560px"
+                sizes="(max-width: 900px) 90vw, 520px"
               />
+            </div>
+          </div>
+
+          {/* Overlapping Secondary Frame (Adult Audiology / Conversation) */}
+          <div className="hero__frame-sub">
+            <div className="hero__sub-img">
+              <Image
+                src={hero.images.adult.src}
+                alt={hero.images.adult.alt}
+                fill
+                sizes="(max-width: 900px) 45vw, 240px"
+              />
+            </div>
+          </div>
+
+          {/* Pure Visual Acoustic Equalizer Pill */}
+          <div className="hero__sound-pill" aria-hidden="true">
+            <span className="hero__sound-icon">
+              <Icon name="ear" size={16} />
+            </span>
+            <div className="hero__bars">
+              <span className="bar bar-1" />
+              <span className="bar bar-2" />
+              <span className="bar bar-3" />
+              <span className="bar bar-4" />
             </div>
           </div>
         </div>

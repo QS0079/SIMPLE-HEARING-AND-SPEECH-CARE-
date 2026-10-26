@@ -61,6 +61,7 @@ const paths = {
     </>
   ),
   chevron: <path d="M9 18l6-6-6-6" />,
+  arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
 };
 
 export default function Icon({ name, size = 22, className = "" }) {
