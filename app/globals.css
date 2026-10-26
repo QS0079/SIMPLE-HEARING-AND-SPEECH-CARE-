@@ -415,6 +415,60 @@ p {
   gap: 20px;
   align-items: flex-start;
 }
+/* Hero Entrance Keyframes (Always Fires on Page Load) */
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroVisualReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroCityWarmth {
+  0%, 100% {
+    color: #b87500;
+    text-shadow: 0 0 0 rgba(245, 191, 3, 0);
+  }
+  50% {
+    color: #d97706;
+    text-shadow: 0 0 14px rgba(245, 191, 3, 0.4);
+  }
+}
+
+@keyframes btnSheenSweep {
+  0%, 65% { left: -100%; }
+  100% { left: 200%; }
+}
+
 .hero__title {
   font-family: var(--display);
   font-size: clamp(2.3rem, 4.4vw, 3.6rem);
@@ -423,9 +477,12 @@ p {
   letter-spacing: -0.025em;
   color: var(--ink);
   margin: 0;
+  animation: heroTextReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
 }
 .hero__city {
   color: #b87500;
+  display: inline-block;
+  animation: heroCityWarmth 3.5s ease-in-out 1.2s infinite;
 }
 .hero__intro {
   font-size: 1.15rem;
@@ -434,6 +491,7 @@ p {
   max-width: 36em;
   font-weight: 500;
   margin: 0;
+  animation: heroTextReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
 }
 .hero__body {
   color: var(--ink-soft);
@@ -441,6 +499,7 @@ p {
   font-size: 15.5px;
   line-height: 1.65;
   margin: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
 }
 .hero__ctas {
   display: flex;
@@ -448,12 +507,29 @@ p {
   align-items: center;
   gap: 14px;
   margin-top: 6px;
+  animation: heroFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both;
 }
 .hero__ctas .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
+}
+.hero__ctas .btn:first-child {
+  position: relative;
+  overflow: hidden;
+}
+.hero__ctas .btn:first-child::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: btnSheenSweep 4s ease-in-out 1.4s infinite;
+  pointer-events: none;
 }
 .hero__ctas .btn:first-child .icon {
   transition: transform 0.2s ease;
@@ -474,6 +550,7 @@ p {
   font-weight: 500;
   line-height: 1.4;
   margin-top: 4px;
+  animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
 }
 .hero__note-pulse {
   width: 8px;
@@ -494,6 +571,7 @@ p {
   width: 100%;
   max-width: 540px;
   justify-self: end;
+  animation: heroVisualReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 .hero__photo-aura {
   position: absolute;
@@ -520,11 +598,9 @@ p {
   box-shadow: 0 20px 48px -12px rgba(24, 33, 46, 0.12), 0 0 0 1px rgba(24, 33, 46, 0.04);
   z-index: 1;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  animation: heroCardFloat 6.5s ease-in-out 1.25s infinite alternate;
 }
-.reveal-ready .hero__visual.is-in .hero__photo-card {
-  animation: hero-card-float 6.5s ease-in-out 1.2s infinite alternate;
-}
-@keyframes hero-card-float {
+@keyframes heroCardFloat {
   0% { transform: translateY(0); }
   100% { transform: translateY(-7px); }
 }
@@ -1595,59 +1671,6 @@ p {
   transform: none;
 }
 
-/* 1. Hero Section - Acoustic Clarity Revelation & Soft Lens Focus */
-.reveal-ready .hero__title[data-reveal] {
-  opacity: 0;
-  transform: translateY(28px);
-  filter: blur(6px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 40ms),
-              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 40ms),
-              filter 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 40ms);
-}
-.reveal-ready .hero__intro[data-reveal] {
-  opacity: 0;
-  transform: translateY(22px);
-  filter: blur(3px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 140ms),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 140ms),
-              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 140ms);
-}
-.reveal-ready .hero__body[data-reveal] {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 220ms),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 220ms);
-}
-.reveal-ready .hero__ctas[data-reveal] {
-  opacity: 0;
-  transform: translateY(16px) scale(0.97);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 300ms),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 300ms);
-}
-.reveal-ready .hero__note[data-reveal] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 380ms),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 380ms);
-}
-.reveal-ready .hero__visual[data-reveal] {
-  opacity: 0;
-  transform: scale(0.92) translateY(24px);
-  filter: blur(8px);
-  transition: opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 120ms),
-              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 120ms),
-              filter 1.05s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 120ms);
-}
-.reveal-ready .hero__title[data-reveal].is-in,
-.reveal-ready .hero__intro[data-reveal].is-in,
-.reveal-ready .hero__body[data-reveal].is-in,
-.reveal-ready .hero__ctas[data-reveal].is-in,
-.reveal-ready .hero__note[data-reveal].is-in,
-.reveal-ready .hero__visual[data-reveal].is-in {
-  opacity: 1;
-  transform: none;
-  filter: blur(0);
-}
 
 /* 2. Adults Section - Bilateral Auditory Inflow (Left) & Gyro-Stabilization (Right) */
 .reveal-ready .adults .acard[data-reveal] {
@@ -2004,8 +2027,21 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__note-pulse {
+  .hero__title,
+  .hero__intro,
+  .hero__body,
+  .hero__ctas,
+  .hero__note,
+  .hero__visual,
+  .hero__photo-card,
+  .hero__photo-aura,
+  .hero__note-pulse,
+  .hero__ctas .btn:first-child::after,
+  .hero__city {
     animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 }
 
