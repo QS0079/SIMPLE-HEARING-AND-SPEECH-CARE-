@@ -2,7 +2,6 @@ import Image from "next/image";
 import EnquiryProvider from "@/components/EnquiryProvider";
 import EnquiryButton from "@/components/EnquiryButton";
 import Header from "@/components/Header";
-import Waveform from "@/components/Waveform";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import Logo from "@/components/Logo";
@@ -10,7 +9,6 @@ import MobileBar from "@/components/MobileBar";
 import {
   clinic,
   hero,
-  services,
   adults,
   pediatrics,
   neuro,
@@ -36,14 +34,12 @@ function Points({ items, className = "" }) {
 }
 
 function Hero() {
-  const [t1, t2, t3, t4] = hero.title;
   return (
     <section className="hero" id="top">
-      <div className="hero__glow" aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy">
           <h1 className="hero__title" data-reveal>
-            {t1} <span className="hero__highlight">{t2}</span> {t3} <em>{t4}</em>
+            Top Hearing &amp; Speech Care Clinic in <span className="hero__city">Pune</span>
           </h1>
           <p className="hero__intro" data-reveal>{hero.intro}</p>
           <p className="hero__body" data-reveal>{hero.body}</p>
@@ -52,7 +48,7 @@ function Hero() {
               <span>{hero.cta}</span>
               <Icon name="arrowRight" size={16} />
             </EnquiryButton>
-            <a href={clinic.phoneHref} className="btn btn--ghost-light">
+            <a href={clinic.phoneHref} className="btn btn--outline">
               <Icon name="phone" size={17} />
               <span>{clinic.phoneDisplay}</span>
             </a>
@@ -64,59 +60,19 @@ function Hero() {
         </div>
 
         <div className="hero__visual" data-reveal>
-          {/* Soft Ambient Background Aura */}
-          <div className="hero__aura" aria-hidden="true">
-            <div className="hero__aura-glow" />
-          </div>
-
-          {/* Primary Arch Frame (Joyful Pediatric Breakthrough) */}
-          <div className="hero__frame-main">
-            <div className="hero__arch-img">
-              <Image
-                src={hero.images.main.src}
-                alt={hero.images.main.alt}
-                fill
-                priority
-                sizes="(max-width: 900px) 90vw, 520px"
-              />
-            </div>
-          </div>
-
-          {/* Overlapping Secondary Frame (Adult Audiology / Conversation) */}
-          <div className="hero__frame-sub">
-            <div className="hero__sub-img">
-              <Image
-                src={hero.images.adult.src}
-                alt={hero.images.adult.alt}
-                fill
-                sizes="(max-width: 900px) 45vw, 240px"
-              />
-            </div>
+          <div className="hero__photo-card">
+            <Image
+              src={hero.images.main.src}
+              alt={hero.images.main.alt}
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 560px"
+              className="hero__photo"
+            />
           </div>
         </div>
       </div>
-      <div className="hero__wave">
-        <Waveform />
-      </div>
     </section>
-  );
-}
-
-function Ticker() {
-  const row = [...services, ...services];
-  return (
-    <div className="ticker" aria-label="Our services">
-      <div className="ticker__track">
-        {row.map((s, i) => (
-          <span key={i} className="ticker__item" aria-hidden={i >= services.length}>
-            {s}
-            <svg viewBox="0 0 40 16" width="40" height="16" aria-hidden="true">
-              <path d="M1 8h7l2-5 4 10 3-7 2 4 2-2h18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -138,7 +94,6 @@ function Adults() {
           <article className="acard" data-reveal>
             <div className="acard__media">
               <Image src={aids.image.src} alt={aids.image.alt} fill sizes="(max-width: 900px) 100vw, 640px" />
-              <span className="acard__num">1</span>
             </div>
             <div className="acard__body">
               <h3>{aids.title}</h3>
@@ -152,7 +107,6 @@ function Adults() {
           <article className="vcard" data-reveal>
             <Image src={vertigo.image.src} alt={vertigo.image.alt} fill sizes="(max-width: 900px) 100vw, 560px" className="vcard__img" />
             <div className="vcard__shade" />
-            <span className="acard__num acard__num--light">2</span>
             <div className="vcard__body">
               <h3>{vertigo.title}</h3>
               <p className="lead">{vertigo.lead}</p>
@@ -176,7 +130,6 @@ function Pediatrics() {
             <article key={item.id} className={`kcard kcard--${item.tone}`} data-reveal style={{ "--d": `${i * 90}ms` }}>
               <div className="kcard__media">
                 <Image src={item.image.src} alt={item.image.alt} fill sizes="(max-width: 900px) 100vw, 400px" />
-                <span className="kcard__num">{i + 1}</span>
               </div>
               <div className="kcard__body">
                 <h3>{item.title}</h3>
@@ -389,7 +342,6 @@ export default function Page() {
       <Header />
       <main>
         <Hero />
-        <Ticker />
         <Adults />
         <Pediatrics />
         <Neuro />
