@@ -372,142 +372,36 @@ function FinalCta() {
 function Footer() {
   return (
     <footer className="footer" data-reveal>
-      <div className="wrap">
-        {/* Top Quick Connect Ribbon */}
-        <div className="footer__ribbon">
-          <div className="footer__ribbon-info">
-            <div className="footer__ribbon-badge">
-              <span className="footer__ribbon-dot" />
-              <span>Immediate Support &amp; Enquiries</span>
-            </div>
-            <h3 className="footer__ribbon-heading">
-              Have Questions or Need an Appointment?
-            </h3>
-            <p className="footer__ribbon-sub">
-              Our clinical specialists in Wakad, Pune are ready to guide you. Connect instantly via WhatsApp or phone.
-            </p>
-          </div>
-          <div className="footer__ribbon-actions">
-            <a
-              href={`https://wa.me/${clinic.whatsapp}?text=${encodeURIComponent("Hello, I would like to know more about your services.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer__action-btn footer__action-btn--whatsapp"
-              aria-label="Chat with Simple Hearing on WhatsApp"
-            >
-              <Icon name="whatsapp" size={19} />
-              <span>WhatsApp Consultation</span>
-            </a>
-            <a
-              href={clinic.phoneHref}
-              className="footer__action-btn footer__action-btn--phone"
-              aria-label={`Call ${clinic.phoneDisplay}`}
-            >
-              <Icon name="phone" size={17} />
-              <span>{clinic.phoneDisplay}</span>
-            </a>
-            <a
-              href={clinic.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer__action-btn footer__action-btn--maps"
-              aria-label="Find clinic on Google Maps"
-            >
-              <Icon name="pin" size={17} />
-              <span>Get Directions</span>
-            </a>
-          </div>
+      <div className="wrap footer__inner">
+        <div className="footer__logo-wrap">
+          <Logo light />
         </div>
-
-        {/* Main 4-Column Professional Grid */}
-        <div className="footer__grid">
-          {/* Column 1: Brand & Credentials */}
-          <div className="footer__col footer__col--brand">
-            <div className="footer__logo">
-              <Logo light />
-            </div>
-            <p className="footer__about">
-              Simple Hearing &amp; Speech Care is Pune&apos;s trusted clinic for audiology diagnostics, digital hearing aid fitting, vertigo management, and child developmental therapies.
-            </p>
-            <div className="footer__trust-list">
-              <span className="footer__trust-item">
-                <Icon name="check" size={13} /> Certified Audiologists
-              </span>
-              <span className="footer__trust-item">
-                <Icon name="check" size={13} /> Speech-Language Pathologists
-              </span>
-              <span className="footer__trust-item">
-                <Icon name="check" size={13} /> Wakad, Pune Centre
-              </span>
-            </div>
-          </div>
-
-          {/* Column 2: Adult Services */}
-          <div className="footer__col">
-            <h4 className="footer__title">Adult Care</h4>
-            <ul className="footer__nav-list">
-              <li><a href="#adults"><Icon name="chevron" size={11} /> Hearing Aid Fitting &amp; Trials</a></li>
-              <li><a href="#adults"><Icon name="chevron" size={11} /> Digital &amp; Rechargeable Aids</a></li>
-              <li><a href="#adults"><Icon name="chevron" size={11} /> Audiometry &amp; Hearing Testing</a></li>
-              <li><a href="#adults"><Icon name="chevron" size={11} /> Vertigo Management Clinic</a></li>
-              <li><a href="#contact"><Icon name="chevron" size={11} /> Tinnitus Consultation</a></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Child Development */}
-          <div className="footer__col">
-            <h4 className="footer__title">Child Development</h4>
-            <ul className="footer__nav-list">
-              <li><a href="#pediatrics"><Icon name="chevron" size={11} /> Speech &amp; Language Therapy</a></li>
-              <li><a href="#pediatrics"><Icon name="chevron" size={11} /> Delayed Speech &amp; Stammering</a></li>
-              <li><a href="#pediatrics"><Icon name="chevron" size={11} /> Occupational Therapy</a></li>
-              <li><a href="#pediatrics"><Icon name="chevron" size={11} /> School Readiness Program</a></li>
-              <li><a href="#neuro"><Icon name="chevron" size={11} /> Neuro Sensory Accelerator</a></li>
-              <li><a href="#cogniva"><Icon name="chevron" size={11} /> Cogniva Brain Skill Coaching</a></li>
-            </ul>
-          </div>
-
-          {/* Column 4: Wakad Location & Timings */}
-          <div className="footer__col footer__col--contact">
-            <h4 className="footer__title">Clinic &amp; Timings</h4>
-            <div className="footer__card">
-              <div className="footer__card-icon">
-                <Icon name="pin" size={16} />
-              </div>
-              <div className="footer__card-content">
-                <strong>Wakad, Pune Centre</strong>
-                <p>{clinic.address}</p>
-                <a href={clinic.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer__card-link">
-                  Open Google Maps Directions →
-                </a>
-              </div>
-            </div>
-
-            <div className="footer__card">
-              <div className="footer__card-icon">
-                <Icon name="clock" size={16} />
-              </div>
-              <div className="footer__card-content">
-                <strong>Consultation Hours</strong>
-                <p>Mon – Fri: 9:00 AM – 9:00 PM</p>
-                <p>Saturday: 9:00 AM – 2:00 PM</p>
-                <span className="footer__card-badge">Sunday: By Pre-appointment</span>
-              </div>
-            </div>
-          </div>
+        <p className="footer__desc">
+          Top Hearing &amp; Speech Care Clinic in Wakad, Pune • Personalised Audiology, Hearing Aids, Vertigo Management &amp; Child Therapies
+        </p>
+        <div className="footer__links">
+          <a href={clinic.phoneHref} className="footer__badge footer__badge--phone" aria-label={`Call ${clinic.phoneDisplay}`}>
+            <Icon name="phone" size={16} />
+            <span>{clinic.phoneDisplay}</span>
+          </a>
+          <a
+            href={`https://wa.me/${clinic.whatsapp}?text=${encodeURIComponent("Hello, I would like to know more about your services.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__badge footer__badge--whatsapp"
+            aria-label="Chat with Simple Hearing on WhatsApp"
+          >
+            <Icon name="whatsapp" size={18} />
+            <span>WhatsApp Enquiry</span>
+          </a>
+          <a href={clinic.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer__badge footer__badge--maps" aria-label="Open clinic location on Google Maps">
+            <Icon name="pin" size={16} />
+            <span>Wakad, Pune (Opp. Mont Vert Tropez)</span>
+          </a>
         </div>
-
-        {/* Bottom Legal & Accreditation Strip */}
-        <div className="footer__bottom">
-          <p className="footer__copyright">
-            © {new Date().getFullYear()} {clinic.name}. All rights reserved.
-          </p>
-          <div className="footer__bottom-info">
-            <span>Audiology &amp; Speech-Language Pathology</span>
-            <span className="footer__sep">•</span>
-            <span>Wakad, Pune, Maharashtra 411057</span>
-          </div>
-        </div>
+        <p className="footer__address">{clinic.address}</p>
+        <div className="footer__divider" />
+        <p className="footer__small">© {new Date().getFullYear()} {clinic.name}. All rights reserved.</p>
       </div>
     </footer>
   );
