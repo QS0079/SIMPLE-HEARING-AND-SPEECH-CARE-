@@ -193,7 +193,7 @@ function Cogniva() {
         <div className="cogniva__copy">
           <p className="pill pill--gold" data-reveal>{cogniva.eyebrow}</p>
           <h2 data-reveal>
-            {cogniva.title} — <span className="cogniva__sub">{cogniva.subtitle}</span>
+            {cogniva.title} - <span className="cogniva__sub">{cogniva.subtitle}</span>
           </h2>
           <p className="lead" data-reveal>{cogniva.lead}</p>
           {cogniva.body.map((b) => (
