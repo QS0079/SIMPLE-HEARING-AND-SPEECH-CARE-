@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import { useEnquiry } from "./EnquiryProvider";
 import { clinic } from "@/lib/content";
@@ -15,6 +17,8 @@ const links = [
 
 export default function Header() {
   const { open } = useEnquiry();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
 
@@ -28,13 +32,13 @@ export default function Header() {
   return (
     <header className={`header ${scrolled ? "is-scrolled" : ""} ${menu ? "menu-open" : ""}`}>
       <div className="wrap header__inner">
-        <a href="#top" className="header__brand" aria-label="Simple Hearing & Speech Care home">
+        <Link href="/" className="header__brand" aria-label="Simple Hearing & Speech Care home">
           <Logo priority />
-        </a>
+        </Link>
 
         <nav className="header__nav" aria-label="Sections">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setMenu(false)}>
+            <a key={l.href} href={isHome ? l.href : `/${l.href}`} onClick={() => setMenu(false)}>
               {l.label}
             </a>
           ))}

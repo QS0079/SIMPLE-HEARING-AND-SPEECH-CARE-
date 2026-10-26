@@ -42,6 +42,9 @@ export const metadata = {
     type: "website",
     locale: "en_IN",
   },
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export const viewport = {
