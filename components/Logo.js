@@ -1,17 +1,15 @@
 import Image from "next/image";
 import { clinic } from "@/lib/content";
 
-// The clinic's own logo, served from their website and resized by next/image.
-// To host it locally instead, save it as /public/logo.png and set clinic.logo to "/logo.png".
-export default function Logo({ light = false, priority = false }) {
+export default function Logo({ light = false, priority = false, className = "" }) {
   const src = light ? (clinic.logoLight || "/logo-light.png") : (clinic.logo || "/logo.png");
   return (
-    <span className={`logo ${light ? "logo--light" : ""}`}>
+    <span className={`logo ${light ? "logo--light" : ""} ${className}`}>
       <Image
         src={src}
         alt="Simple Hearing & Speech Care"
-        width={180}
-        height={104}
+        width={220}
+        height={128}
         className="logo__img"
         priority={priority}
       />

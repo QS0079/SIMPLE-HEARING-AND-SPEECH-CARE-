@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { clinic, services } from "@/lib/content";
+import Icon from "./Icon";
 
 const EnquiryContext = createContext({ open: () => {} });
 
@@ -145,10 +146,8 @@ export default function EnquiryProvider({ children }) {
                   <textarea id="enq-msg" name="message" rows={3} placeholder="Tell us briefly what you need help with" />
                 </label>
                 <button type="submit" className="btn btn--grad btn--block">
-                  Send on WhatsApp
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <Icon name="whatsapp" size={18} />
+                  <span>Send on WhatsApp</span>
                 </button>
                 <p className="form__note">
                   Or call us on <a href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
