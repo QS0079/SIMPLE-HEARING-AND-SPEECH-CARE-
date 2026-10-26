@@ -64,10 +64,9 @@ function Hero() {
         </div>
 
         <div className="hero__visual" data-reveal>
-          {/* Architectural Background Aura with Acoustic Rings */}
+          {/* Soft Ambient Background Aura */}
           <div className="hero__aura" aria-hidden="true">
-            <div className="hero__aura-ring hero__aura-ring--1" />
-            <div className="hero__aura-ring hero__aura-ring--2" />
+            <div className="hero__aura-glow" />
           </div>
 
           {/* Primary Arch Frame (Joyful Pediatric Breakthrough) */}
@@ -92,19 +91,6 @@ function Hero() {
                 fill
                 sizes="(max-width: 900px) 45vw, 240px"
               />
-            </div>
-          </div>
-
-          {/* Pure Visual Acoustic Equalizer Pill */}
-          <div className="hero__sound-pill" aria-hidden="true">
-            <span className="hero__sound-icon">
-              <Icon name="ear" size={16} />
-            </span>
-            <div className="hero__bars">
-              <span className="bar bar-1" />
-              <span className="bar bar-2" />
-              <span className="bar bar-3" />
-              <span className="bar bar-4" />
             </div>
           </div>
         </div>
