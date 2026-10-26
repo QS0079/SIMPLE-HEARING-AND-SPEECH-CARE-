@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Waveform from "@/components/Waveform";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
-import Seal from "@/components/Seal";
 import Logo from "@/components/Logo";
 import MobileBar from "@/components/MobileBar";
 import {
@@ -43,9 +42,6 @@ function Hero() {
       <div className="hero__glow" aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy">
-          <p className="pill pill--yellow" data-reveal>
-            <span className="pill__dot" /> Wakad, Pune • Certified Hearing & Speech Care Clinic
-          </p>
           <h1 className="hero__title" data-reveal>
             {t1} <span className="hero__highlight">{t2}</span> {t3} <em>{t4}</em>
           </h1>
@@ -57,22 +53,6 @@ function Hero() {
               <Icon name="phone" size={17} />
               <span>{clinic.phoneDisplay}</span>
             </a>
-          </div>
-          <div className="hero__metrics" data-reveal>
-            <div className="hmetric">
-              <strong>7+</strong>
-              <span>Specialised Programs</span>
-            </div>
-            <div className="hmetric__div" />
-            <div className="hmetric">
-              <strong>All Ages</strong>
-              <span>Pediatric & Adult Care</span>
-            </div>
-            <div className="hmetric__div" />
-            <div className="hmetric">
-              <strong>Wakad</strong>
-              <span>Pune Clinic Centre</span>
-            </div>
           </div>
           <p className="hero__note" data-reveal>{hero.note}</p>
         </div>
@@ -87,15 +67,6 @@ function Hero() {
                 priority
                 sizes="(max-width: 900px) 90vw, 560px"
               />
-            </div>
-            <div className="hero__badge-card">
-              <div className="hero__badge-icon">
-                <Icon name="check" size={16} />
-              </div>
-              <div>
-                <strong className="hero__badge-title">Comprehensive Clinic</strong>
-                <span className="hero__badge-sub">Hearing · Speech · Learning</span>
-              </div>
             </div>
           </div>
         </div>
@@ -125,10 +96,9 @@ function Ticker() {
   );
 }
 
-function SectionHead({ label, title, light = false, center = false }) {
+function SectionHead({ title, center = false }) {
   return (
-    <div className={`shead ${light ? "shead--light" : ""} ${center ? "shead--center" : ""}`} data-reveal>
-      <p className="eyebrow">{label}</p>
+    <div className={`shead ${center ? "shead--center" : ""}`} data-reveal>
       <h2>{title}</h2>
     </div>
   );
@@ -139,12 +109,12 @@ function Adults() {
   return (
     <section className="section adults" id="adults">
       <div className="wrap">
-        <SectionHead label="For Adults" title={adults.heading} center />
+        <SectionHead title={adults.heading} center />
         <div className="adults__grid">
           <article className="acard" data-reveal>
             <div className="acard__media">
               <Image src={aids.image.src} alt={aids.image.alt} fill sizes="(max-width: 900px) 100vw, 640px" />
-              <span className="acard__num">01</span>
+              <span className="acard__num">1</span>
             </div>
             <div className="acard__body">
               <h3>{aids.title}</h3>
@@ -158,7 +128,7 @@ function Adults() {
           <article className="vcard" data-reveal>
             <Image src={vertigo.image.src} alt={vertigo.image.alt} fill sizes="(max-width: 900px) 100vw, 560px" className="vcard__img" />
             <div className="vcard__shade" />
-            <span className="acard__num acard__num--light">02</span>
+            <span className="acard__num acard__num--light">2</span>
             <div className="vcard__body">
               <h3>{vertigo.title}</h3>
               <p className="lead">{vertigo.lead}</p>
@@ -176,18 +146,18 @@ function Pediatrics() {
   return (
     <section className="section kids" id="pediatrics">
       <div className="wrap">
-        <SectionHead label="For Kids" title={pediatrics.heading} center />
+        <SectionHead title={pediatrics.heading} center />
         <div className="kids__grid">
           {pediatrics.items.map((item, i) => (
             <article key={item.id} className={`kcard kcard--${item.tone}`} data-reveal style={{ "--d": `${i * 90}ms` }}>
               <div className="kcard__media">
                 <Image src={item.image.src} alt={item.image.alt} fill sizes="(max-width: 900px) 100vw, 400px" />
-                <span className="kcard__num">0{i + 1}</span>
+                <span className="kcard__num">{i + 1}</span>
               </div>
               <div className="kcard__body">
                 <h3>{item.title}</h3>
                 <p className="lead">{item.lead}</p>
-                <p>{item.body}</p>
+                {item.body ? <p>{item.body}</p> : null}
                 <Points items={item.points} />
                 <div className="kcard__cta">
                   <EnquiryButton service={item.service} variant="outline">{item.cta}</EnquiryButton>
@@ -213,12 +183,11 @@ function Neuro() {
           <div className="neuro__inset">
             <Image src={neuro.image2.src} alt={neuro.image2.alt} fill sizes="220px" />
           </div>
-          <Seal className="neuro__seal" />
         </div>
 
         <div className="neuro__copy">
           <p className="pill pill--yellow" data-reveal>
-            <Icon name="spark" size={15} /> {neuro.eyebrow}
+            {neuro.eyebrow}
           </p>
           <h2 data-reveal>{neuro.title}</h2>
           <p className="neuro__tagline" data-reveal>{neuro.tagline}</p>
@@ -229,7 +198,7 @@ function Neuro() {
             {neuro.points.map((p, i) => (
               <li key={p}>
                 <span className="neuro__idx">{String(i + 1).padStart(2, "0")}</span>
-                {p}
+                <span>{p}</span>
               </li>
             ))}
           </ul>
@@ -249,8 +218,7 @@ function Cogniva() {
         <div className="cogniva__copy">
           <p className="pill pill--gold" data-reveal>{cogniva.eyebrow}</p>
           <h2 data-reveal>
-            {cogniva.title}
-            <span className="cogniva__sub">{cogniva.subtitle}</span>
+            {cogniva.title} — <span className="cogniva__sub">{cogniva.subtitle}</span>
           </h2>
           <p className="lead" data-reveal>{cogniva.lead}</p>
           {cogniva.body.map((b) => (
@@ -272,15 +240,6 @@ function Cogniva() {
         <div className="cogniva__visual" data-reveal>
           <div className="cogniva__frame">
             <Image src={cogniva.image.src} alt={cogniva.image.alt} fill sizes="(max-width: 900px) 90vw, 500px" />
-            <div className="cogniva__feature-card">
-              <div className="cogniva__feature-icon">
-                <Icon name="spark" size={18} />
-              </div>
-              <div>
-                <strong>Cogniva Coaching</strong>
-                <span>Structured Brain Skill Coaching</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -293,17 +252,14 @@ function Why() {
     <section className="section why" id="why">
       <div className="wrap why__grid">
         <div>
-          <SectionHead label="Why Simple" title={why.heading} />
+          <SectionHead title={why.heading} />
           <ul className="why__list">
-            {why.items.map((it, i) => (
-              <li key={it.title} data-reveal style={{ "--d": `${i * 70}ms` }}>
+            {why.items.map((text, i) => (
+              <li key={text} data-reveal style={{ "--d": `${i * 70}ms` }}>
                 <span className="why__icon">
-                  <Icon name={it.icon} size={22} />
+                  <Icon name="check" size={20} />
                 </span>
-                <div>
-                  <h3>{it.title}</h3>
-                  <p>{it.text}</p>
-                </div>
+                <p className="why__item-text">{text}</p>
               </li>
             ))}
           </ul>
@@ -314,10 +270,6 @@ function Why() {
               <Image src={img.src} alt={img.alt} fill sizes="(max-width: 900px) 50vw, 300px" />
             </div>
           ))}
-          <div className="why__badge">
-            <Icon name="ear" size={26} />
-            <span>Hearing · Speech · Therapy · Learning</span>
-          </div>
         </div>
       </div>
     </section>
@@ -334,7 +286,7 @@ function FinalCta() {
             <p className="final__body">{finalCta.body}</p>
             <p className="final__note">{finalCta.note}</p>
             <div className="final__ctas">
-              <EnquiryButton variant="dark">Book an Appointment</EnquiryButton>
+              <EnquiryButton variant="dark">{finalCta.primaryCta || "Book an Appointment"}</EnquiryButton>
               <a
                 className="btn btn--white"
                 href={`https://wa.me/${clinic.whatsapp}?text=${encodeURIComponent("Hello, I would like to know more about your services.")}`}
@@ -342,7 +294,7 @@ function FinalCta() {
                 rel="noopener noreferrer"
               >
                 <Icon name="whatsapp" size={18} />
-                <span>Chat on WhatsApp</span>
+                <span>{finalCta.secondaryCta || "Contact Our Team"}</span>
               </a>
             </div>
             <ul className="final__contact">

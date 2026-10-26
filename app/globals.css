@@ -1185,22 +1185,24 @@ p {
 .why__list li {
   display: flex;
   gap: 16px;
-  align-items: flex-start;
-  padding: 16px 16px;
+  align-items: center;
+  padding: 14px 16px;
   border-radius: var(--r-md);
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  border: 1px solid transparent;
+  transition: background-color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
 }
 .why__list li:hover {
   background: var(--surface);
+  border-color: var(--line);
   transform: translateX(4px);
 }
 .why__icon {
   flex: none;
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   color: var(--ink);
   background: var(--yellow-soft);
   border: 1px solid var(--yellow-border);
@@ -1210,15 +1212,12 @@ p {
   background: var(--yellow);
   color: #18212e;
 }
-.why__list h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  margin-bottom: 4px;
-}
-.why__list p {
-  color: var(--ink-soft);
-  font-size: 15px;
+.why__item-text {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.45;
+  margin: 0;
 }
 .why__mosaic {
   position: relative;
