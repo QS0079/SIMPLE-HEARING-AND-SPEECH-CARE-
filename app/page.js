@@ -38,12 +38,12 @@ function Hero() {
     <section className="hero" id="top">
       <div className="wrap hero__grid">
         <div className="hero__copy">
-          <h1 className="hero__title" data-reveal>
+          <h1 className="hero__title" data-reveal style={{ "--d": "40ms" }}>
             Top Hearing &amp; Speech Care Clinic in <span className="hero__city">Pune</span>
           </h1>
-          <p className="hero__intro" data-reveal>{hero.intro}</p>
-          <p className="hero__body" data-reveal>{hero.body}</p>
-          <div className="hero__ctas" data-reveal>
+          <p className="hero__intro" data-reveal style={{ "--d": "140ms" }}>{hero.intro}</p>
+          <p className="hero__body" data-reveal style={{ "--d": "220ms" }}>{hero.body}</p>
+          <div className="hero__ctas" data-reveal style={{ "--d": "300ms" }}>
             <EnquiryButton>
               <span>{hero.cta}</span>
               <Icon name="arrowRight" size={16} />
@@ -53,13 +53,14 @@ function Hero() {
               <span>{clinic.phoneDisplay}</span>
             </a>
           </div>
-          <div className="hero__note" data-reveal>
+          <div className="hero__note" data-reveal style={{ "--d": "380ms" }}>
             <span className="hero__note-pulse" aria-hidden="true" />
             <span>{hero.note}</span>
           </div>
         </div>
 
-        <div className="hero__visual" data-reveal>
+        <div className="hero__visual" data-reveal style={{ "--d": "120ms" }}>
+          <div className="hero__photo-aura" aria-hidden="true" />
           <div className="hero__photo-card">
             <Image
               src={hero.images.main.src}

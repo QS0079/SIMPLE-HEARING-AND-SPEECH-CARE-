@@ -2,13 +2,18 @@
 
 import { useEffect } from "react";
 
-// Adds a gentle rise-in to anything marked data-reveal. Content is visible by default;
-// the animation only runs once JS has loaded, so nothing is ever hidden without it.
+// Adds unique section-by-section transitions to anything marked data-reveal.
+// Elements are visible by default if JS is disabled or during SSR.
 export default function Reveal() {
   useEffect(() => {
-    const els = document.querySelectorAll("[data-reveal]");
+    if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // Mark document as ready for reveals
     document.documentElement.classList.add("reveal-ready");
+
+    const els = Array.from(document.querySelectorAll("[data-reveal]"));
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -18,14 +23,33 @@ export default function Reveal() {
           }
         });
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 }
     );
+
+    const inViewport = [];
+
     els.forEach((el) => {
       const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight) el.classList.add("is-in");
-      else io.observe(el);
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        inViewport.push(el);
+      } else {
+        io.observe(el);
+      }
     });
-    return () => io.disconnect();
+
+    // Stagger-trigger in-viewport elements (Hero) after paint so CSS transitions play gracefully
+    const timer = setTimeout(() => {
+      inViewport.forEach((el) => {
+        el.classList.add("is-in");
+      });
+    }, 50);
+
+    return () => {
+      clearTimeout(timer);
+      io.disconnect();
+    };
   }, []);
+
   return null;
 }
+
