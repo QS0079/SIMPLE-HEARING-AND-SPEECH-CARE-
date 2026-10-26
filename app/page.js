@@ -44,10 +44,7 @@ function Hero() {
           <p className="hero__intro">{hero.intro}</p>
           <p className="hero__body">{hero.body}</p>
           <div className="hero__ctas">
-            <EnquiryButton>
-              <span>{hero.cta}</span>
-              <Icon name="arrowRight" size={16} />
-            </EnquiryButton>
+            <EnquiryButton>{hero.cta}</EnquiryButton>
             <a href={clinic.phoneHref} className="btn btn--outline">
               <Icon name="phone" size={17} />
               <span>{clinic.phoneDisplay}</span>
