@@ -817,6 +817,27 @@ p {
   font-weight: 600;
   text-decoration: none;
 }
+.hero-form-card__countdown-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  margin-top: 2px;
+}
+.hero-form-card__countdown-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0d9488;
+  box-shadow: 0 0 0 2.5px rgba(13, 148, 136, 0.25);
+  animation: adminPulseDot 1.6s ease-in-out infinite;
+}
 
 /* Floating Contact Buttons (Right Corner) */
 .floating-contact {

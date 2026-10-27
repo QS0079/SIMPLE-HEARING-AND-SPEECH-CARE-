@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { clinic, services } from "@/lib/content";
 import { useEnquiry } from "./EnquiryProvider";
 import Icon from "./Icon";
@@ -12,6 +12,35 @@ export default function HeroAppointmentForm() {
   const [lead, setLead] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [countdown, setCountdown] = useState(5);
+
+  const resetForm = useCallback(() => {
+    setSent(false);
+    setAcceptedTerms(false);
+    setLead(null);
+    setErrorMsg("");
+    setService("");
+  }, [setService]);
+
+  // Auto-reset form back to original state 5 seconds after submission
+  useEffect(() => {
+    if (!sent) return;
+
+    setCountdown(5);
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          resetForm();
+          return 5;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [sent, resetForm]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -87,15 +116,16 @@ export default function HeroAppointmentForm() {
               <span>{clinic.phoneDisplay}</span>
             </a>
           </div>
+          <div className="hero-form-card__countdown-pill">
+            <span className="hero-form-card__countdown-dot" aria-hidden="true" />
+            <span>Returning to form in <strong>{countdown}s</strong></span>
+          </div>
           <button
             type="button"
             className="btn btn--outline btn--sm"
-            onClick={() => {
-              setSent(false);
-              setAcceptedTerms(false);
-            }}
+            onClick={resetForm}
           >
-            Submit Another Request
+            Submit Another Request Now
           </button>
         </div>
       ) : (
