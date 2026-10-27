@@ -8,6 +8,8 @@ import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 import Logo from "@/components/Logo";
 import MobileBar from "@/components/MobileBar";
+import HeroAppointmentForm from "@/components/HeroAppointmentForm";
+import FloatingContact from "@/components/FloatingContact";
 import {
   clinic,
   hero,
@@ -38,39 +40,64 @@ function Points({ items, className = "" }) {
 function Hero() {
   return (
     <section className="hero" id="top">
+      {/* Background Image with Opacity & Gradient Tint */}
+      <div className="hero__bg-wrap" aria-hidden="true">
+        <Image
+          src={hero.images.main.src}
+          alt=""
+          fill
+          priority
+          unoptimized
+          sizes="100vw"
+          className="hero__bg-img"
+        />
+        <div className="hero__bg-overlay" />
+      </div>
+
       <div className="wrap hero__grid">
         <div className="hero__copy">
+          <div className="hero__badge">
+            <span className="hero__badge-dot" aria-hidden="true" />
+            <span>Trusted Audiology &amp; Speech Care • Wakad, Pune</span>
+          </div>
+
           <h1 className="hero__title">
             Top Hearing &amp; Speech Care Clinic in <span className="hero__city">Pune</span>
           </h1>
+
           <p className="hero__intro">{hero.intro}</p>
           <p className="hero__body">{hero.body}</p>
+
+          <ul className="hero__highlights">
+            <li>
+              <Icon name="check" size={15} />
+              <span>Personalised Audiology &amp; Hearing Assessments</span>
+            </li>
+            <li>
+              <Icon name="check" size={15} />
+              <span>Advanced Digital Hearing Aids &amp; Trial Guidance</span>
+            </li>
+            <li>
+              <Icon name="check" size={15} />
+              <span>Speech Therapy &amp; Child Developmental Programs</span>
+            </li>
+          </ul>
+
           <div className="hero__ctas">
-            <EnquiryButton>{hero.cta}</EnquiryButton>
             <a href={clinic.phoneHref} className="btn btn--outline">
               <Icon name="phone" size={17} />
-              <span>{clinic.phoneDisplay}</span>
+              <span>Call Us: {clinic.phoneDisplay}</span>
             </a>
           </div>
+
           <div className="hero__note">
             <span className="hero__note-pulse" aria-hidden="true" />
             <span>{hero.note}</span>
           </div>
         </div>
 
-        <div className="hero__visual">
-          <div className="hero__photo-aura" aria-hidden="true" />
-          <div className="hero__photo-card">
-            <Image
-              src={hero.images.main.src}
-              alt={hero.images.main.alt}
-              fill
-              priority
-              unoptimized
-              sizes="(max-width: 900px) 100vw, 560px"
-              className="hero__photo"
-            />
-          </div>
+        <div className="hero__form-col">
+          <HeroAppointmentForm />
         </div>
       </div>
     </section>
@@ -316,6 +343,7 @@ export default function Page() {
       </main>
       <Footer />
       <MobileBar />
+      <FloatingContact />
       <Reveal />
     </EnquiryProvider>
   );

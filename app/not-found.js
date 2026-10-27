@@ -3,9 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import EnquiryProvider from "@/components/EnquiryProvider";
 
-export const metadata = {
-  title: "Page Not Found | Simple Hearing & Speech Care",
-};
 
 export default function NotFound() {
   return (

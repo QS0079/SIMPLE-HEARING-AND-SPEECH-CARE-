@@ -24,23 +24,43 @@ const body = Rubik({
 });
 
 export const metadata = {
-  title: "Top Hearing & Speech Care Clinic in Pune | Simple Hearing & Speech Care",
+  title: "Speech Therapy & Hearing Treatment in Wakad, Pune | Simple Hearing & Speech Care Clinic",
   description:
-    "Personalised hearing aids, vertigo management, speech therapy, occupational therapy, school readiness, the Simple Neuro Sensory Accelerator and the Cogniva brain learning program in Wakad, Pune.",
+    "Looking for speech therapy or hearing Treatment in Wakad, Pune? Get professional support for children and adults at Simple Hearing & Speech Care Clinic. Contact us today!",
   keywords: [
-    "hearing clinic in Pune",
-    "speech therapy Pune",
-    "hearing aids Wakad",
-    "vertigo clinic Pune",
-    "occupational therapy Pune",
-    "school readiness program",
+    "speech therapy in Wakad",
+    "speech therapist in Wakad",
+    "hearing test in Wakad",
+    "hearing clinic in Wakad",
+    "speech and hearing clinic Pune",
+    "speech therapist in Pune",
+    "hearing assessment Pune",
+    "audiologist in Pune",
+    "child speech therapy",
+    "speech delay therapy",
+    "language therapy for children",
+    "stammering therapy Pune",
+    "child development centre Wakad",
+    "early intervention therapy Pune",
+    "sensory integration therapy",
+    "occupational therapy for children",
+    "autism therapy Pune",
+    "hearing aids in Wakad",
+    "hearing care clinic Pune",
+    "Simple Hearing & Speech Care Clinic",
   ],
   openGraph: {
-    title: "Top Hearing & Speech Care Clinic in Pune",
+    title: "Speech Therapy & Hearing Treatment in Wakad, Pune | Simple Hearing & Speech Care Clinic",
     description:
-      "Hearing care, vertigo management, therapy and learning programs under one roof at Simple Hearing & Speech Care, Wakad.",
+      "Looking for speech therapy or hearing Treatment in Wakad, Pune? Get professional support for children and adults at Simple Hearing & Speech Care Clinic. Contact us today!",
     type: "website",
     locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Speech Therapy & Hearing Treatment in Wakad, Pune | Simple Hearing & Speech Care Clinic",
+    description:
+      "Looking for speech therapy or hearing Treatment in Wakad, Pune? Get professional support for children and adults at Simple Hearing & Speech Care Clinic. Contact us today!",
   },
   icons: {
     icon: "/icon.svg",

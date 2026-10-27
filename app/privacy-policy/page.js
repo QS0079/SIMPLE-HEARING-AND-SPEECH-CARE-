@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
 import EnquiryProvider from "@/components/EnquiryProvider";
+import FloatingContact from "@/components/FloatingContact";
 import { privacyPolicy } from "@/lib/content";
 
 export const metadata = {
@@ -106,6 +107,7 @@ export default function PrivacyPolicyPage() {
         </main>
         <Footer />
         <MobileBar />
+        <FloatingContact />
       </div>
     </EnquiryProvider>
   );

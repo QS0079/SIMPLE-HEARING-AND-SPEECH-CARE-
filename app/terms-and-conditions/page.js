@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
 import EnquiryProvider from "@/components/EnquiryProvider";
+import FloatingContact from "@/components/FloatingContact";
 import { termsAndConditions } from "@/lib/content";
 
 export const metadata = {
@@ -90,6 +91,7 @@ export default function TermsAndConditionsPage() {
         </main>
         <Footer />
         <MobileBar />
+        <FloatingContact />
       </div>
     </EnquiryProvider>
   );

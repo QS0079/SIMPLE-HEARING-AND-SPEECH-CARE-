@@ -1,0 +1,25 @@
+﻿# Hostinger Apache / LiteSpeed configuration for Next.js Static Export
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Redirect legacy URL aliases (permanent 301)
+  RewriteRule ^privacy/?$ /privacy-policy [R=301,L]
+  RewriteRule ^terms/?$ /terms-and-conditions [R=301,L]
+  RewriteRule ^terms-condition/?$ /terms-and-conditions [R=301,L]
+  RewriteRule ^terms-and-condition/?$ /terms-and-conditions [R=301,L]
+
+  # 2. Clean URLs: Serve .html files without showing .html extension in browser
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# 3. Custom 404 error page
+ErrorDocument 404 /404.html
+
+# 4. Enable compression for speed
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
