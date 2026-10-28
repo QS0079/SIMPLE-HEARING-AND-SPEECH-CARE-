@@ -1851,68 +1851,57 @@ p {
   text-decoration: underline;
 }
 
-/* Corporate Hospital Service Partners */
-.footer__partners {
-  margin-top: 4px;
-  margin-bottom: 24px;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--r-md);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+/* Corporate Hospital Service Partners inside Column 2 */
+.footer__service-partners {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.footer__partners-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--yellow-bright);
-}
-.footer__partners-title h4 {
-  font-size: 0.92rem;
+.footer__subheading {
+  font-size: 0.96rem;
   font-weight: 700;
   color: #ffffff;
+  margin: 0 0 14px;
+  position: relative;
+  padding-bottom: 8px;
+}
+.footer__subheading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--yellow);
+  border-radius: 2px;
+}
+.footer__partners-sublist {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  letter-spacing: -0.01em;
-}
-.footer__partners-list {
-  display: flex;
-  align-items: center;
+  display: grid;
   gap: 10px;
-  flex-wrap: wrap;
 }
-.footer__partner-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 6px 14px;
-  border-radius: 999px;
+.footer__partners-sublist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
   font-size: 13px;
-  transition: border-color 0.2s, background-color 0.2s;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
-.footer__partner-item:hover {
-  background: rgba(245, 191, 3, 0.12);
-  border-color: rgba(245, 191, 3, 0.4);
+.footer__partners-sublist li:hover {
+  color: var(--yellow-bright);
+  transform: translateX(2px);
 }
 .footer__partner-bullet {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--yellow);
+  margin-top: 7px;
   flex-shrink: 0;
-}
-.footer__partner-name {
-  font-weight: 600;
-  color: #ffffff;
-}
-.footer__partner-loc {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
 }
 
 /* Bottom Bar */
@@ -1954,15 +1943,6 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 32px 36px;
   }
-  .footer__partners {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px;
-    gap: 12px;
-  }
-  .footer__partners-list {
-    width: 100%;
-  }
 }
 @media (max-width: 580px) {
   .footer__logo-wrap .logo__img {
@@ -1972,16 +1952,6 @@ p {
   .footer__grid {
     grid-template-columns: 1fr;
     gap: 28px;
-  }
-  .footer__partners-list {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .footer__partner-item {
-    justify-content: flex-start;
-    border-radius: 8px;
-    padding: 8px 12px;
   }
   .footer__bottom {
     flex-direction: column;

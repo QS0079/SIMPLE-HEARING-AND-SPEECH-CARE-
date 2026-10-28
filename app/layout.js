@@ -63,7 +63,12 @@ export const metadata = {
       "Looking for speech therapy or hearing Treatment in Wakad, Pune? Get professional support for children and adults at Simple Hearing & Speech Care Clinic. Contact us today!",
   },
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 

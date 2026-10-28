@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Adult Services */}
+          {/* Column 2: Adult Services & Corporate Hospital Partners */}
           <div className="footer__col">
             <h4 className="footer__heading">Hearing &amp; Adult Care</h4>
             <ul className="footer__links-list">
@@ -57,11 +57,30 @@ export default function Footer() {
                 <a href="/#appointment-form">Hearing Assessment &amp; Trial</a>
               </li>
             </ul>
+
+            {/* Corporate Hospital Service Partner (just below Hearing & Adult Care) */}
+            <div className="footer__service-partners">
+              <h5 className="footer__subheading">Corporate Hospital Service Partner</h5>
+              <ul className="footer__partners-sublist">
+                <li>
+                  <span className="footer__partner-bullet" aria-hidden="true" />
+                  <span>Sai Vita Life Hospital, Wakad</span>
+                </li>
+                <li>
+                  <span className="footer__partner-bullet" aria-hidden="true" />
+                  <span>Ankura Hospital, Wakad</span>
+                </li>
+                <li>
+                  <span className="footer__partner-bullet" aria-hidden="true" />
+                  <span>Asian Pacific Hospital, Hinjewadi</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Column 3: Pediatric Services */}
+          {/* Column 3: Child Therapies & Pediatric Care */}
           <div className="footer__col">
-            <h4 className="footer__heading">Pediatric Care</h4>
+            <h4 className="footer__heading">Child Therapies &amp; Pediatric Care</h4>
             <ul className="footer__links-list">
               <li>
                 <a href="/#pediatrics">Speech and Language Therapy</a>
@@ -119,43 +138,6 @@ export default function Footer() {
               <Icon name="pin" size={14} />
               <span>Directions on Google Maps</span>
             </a>
-          </div>
-        </div>
-
-        {/* Corporate Hospital Service Partner */}
-        <div className="footer__partners">
-          <div className="footer__partners-title">
-            <svg
-              viewBox="0 0 24 24"
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M3 21h18M5 21V7l8-4v18M13 7l6 4v10M9 9v.01M9 13v.01M9 17v.01M17 13v.01M17 17v.01" />
-            </svg>
-            <h4>Corporate Hospital Service Partner</h4>
-          </div>
-          <div className="footer__partners-list">
-            <div className="footer__partner-item">
-              <span className="footer__partner-bullet" aria-hidden="true" />
-              <span className="footer__partner-name">Sai Vita Life Hospital</span>
-              <span className="footer__partner-loc">Wakad</span>
-            </div>
-            <div className="footer__partner-item">
-              <span className="footer__partner-bullet" aria-hidden="true" />
-              <span className="footer__partner-name">Ankura Hospital</span>
-              <span className="footer__partner-loc">Wakad</span>
-            </div>
-            <div className="footer__partner-item">
-              <span className="footer__partner-bullet" aria-hidden="true" />
-              <span className="footer__partner-name">Asian Pacific Hospital</span>
-              <span className="footer__partner-loc">Hinjewadi</span>
-            </div>
           </div>
         </div>
 
