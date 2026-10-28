@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Hearing & Adult Care + Child Therapies */}
+          {/* Column 2: Hearing & Adult Care */}
           <div className="footer__col">
             <h4 className="footer__heading">Hearing &amp; Adult Care</h4>
             <ul className="footer__links-list">
@@ -57,25 +57,6 @@ export default function Footer() {
                 <a href="/#appointment-form">Hearing Assessment &amp; Trial</a>
               </li>
             </ul>
-
-            {/* Child Therapies (below Hearing & Adult Care) */}
-            <div className="footer__sub-block">
-              <h4 className="footer__heading">Child Therapies</h4>
-              <ul className="footer__links-list">
-                <li>
-                  <a href="/#pediatrics">Speech Therapy</a>
-                </li>
-                <li>
-                  <a href="/#pediatrics">Occupational Therapy</a>
-                </li>
-                <li>
-                  <a href="/#neuro">Neuro Sensory Accelerator</a>
-                </li>
-                <li>
-                  <a href="/#cogniva">Cogniva Program</a>
-                </li>
-              </ul>
-            </div>
           </div>
 
           {/* Column 3: Pediatric Care */}
