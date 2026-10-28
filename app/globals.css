@@ -2635,8 +2635,27 @@ p {
     padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
   }
 
-  /* On screens where mobilebar is active, hide floating contact to eliminate duplicate buttons and text obstruction */
+  /* Floating contact buttons (tablet & mobile view - sits cleanly above sticky bottom bar) */
   .floating-contact {
+    display: flex !important;
+    position: fixed;
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 95;
+  }
+  .floating-contact__btn {
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 6px 18px -2px rgba(0, 0, 0, 0.28);
+  }
+  .floating-contact__btn svg {
+    width: 22px;
+    height: 22px;
+  }
+  .floating-contact__tooltip {
     display: none !important;
   }
 }
@@ -2699,6 +2718,20 @@ p {
     height: 46px;
     padding: 0;
     border-radius: 50%;
+  }
+  .floating-contact {
+    right: 14px;
+    bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+    gap: 8px;
+  }
+  .floating-contact__btn {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 5px 14px -2px rgba(0, 0, 0, 0.28);
+  }
+  .floating-contact__btn svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
