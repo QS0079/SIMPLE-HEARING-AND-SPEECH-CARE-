@@ -1851,29 +1851,12 @@ p {
   text-decoration: underline;
 }
 
-/* Corporate Hospital Service Partners inside Column 2 */
-.footer__service-partners {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* Sub-blocks for stacked sections within a footer column */
+.footer__sub-block {
+  margin-top: 28px;
 }
-.footer__subheading {
-  font-size: 0.96rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 14px;
-  position: relative;
-  padding-bottom: 8px;
-}
-.footer__subheading::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background: var(--yellow);
-  border-radius: 2px;
+.footer__sub-block--top {
+  margin-bottom: 28px;
 }
 .footer__partners-sublist {
   list-style: none;

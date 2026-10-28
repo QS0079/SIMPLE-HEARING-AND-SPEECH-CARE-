@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Adult Services & Corporate Hospital Partners */}
+          {/* Column 2: Hearing & Adult Care + Child Therapies */}
           <div className="footer__col">
             <h4 className="footer__heading">Hearing &amp; Adult Care</h4>
             <ul className="footer__links-list">
@@ -58,29 +58,29 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Corporate Hospital Service Partner (just below Hearing & Adult Care) */}
-            <div className="footer__service-partners">
-              <h5 className="footer__subheading">Corporate Hospital Service Partner</h5>
-              <ul className="footer__partners-sublist">
+            {/* Child Therapies (below Hearing & Adult Care) */}
+            <div className="footer__sub-block">
+              <h4 className="footer__heading">Child Therapies</h4>
+              <ul className="footer__links-list">
                 <li>
-                  <span className="footer__partner-bullet" aria-hidden="true" />
-                  <span>Sai Vita Life Hospital, Wakad</span>
+                  <a href="/#pediatrics">Speech Therapy</a>
                 </li>
                 <li>
-                  <span className="footer__partner-bullet" aria-hidden="true" />
-                  <span>Ankura Hospital, Wakad</span>
+                  <a href="/#pediatrics">Occupational Therapy</a>
                 </li>
                 <li>
-                  <span className="footer__partner-bullet" aria-hidden="true" />
-                  <span>Asian Pacific Hospital, Hinjewadi</span>
+                  <a href="/#neuro">Neuro Sensory Accelerator</a>
+                </li>
+                <li>
+                  <a href="/#cogniva">Cogniva Program</a>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Column 3: Child Therapies & Pediatric Care */}
+          {/* Column 3: Pediatric Care */}
           <div className="footer__col">
-            <h4 className="footer__heading">Child Therapies &amp; Pediatric Care</h4>
+            <h4 className="footer__heading">Pediatric Care</h4>
             <ul className="footer__links-list">
               <li>
                 <a href="/#pediatrics">Speech and Language Therapy</a>
@@ -121,23 +121,45 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Visit Us & Hours */}
+          {/* Column 4: Corporate Hospital Service Partner + Clinic Location */}
           <div className="footer__col">
-            <h4 className="footer__heading">Clinic Location</h4>
-            <p className="footer__address-text">{clinic.address}</p>
-            <p className="footer__timings-text">
-              <strong>Mon – Sat:</strong> 10:00 AM – 8:00 PM<br />
-              <span className="footer__muted">Sunday: By Appointment Only</span>
-            </p>
-            <a
-              href={clinic.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer__maps-link"
-            >
-              <Icon name="pin" size={14} />
-              <span>Directions on Google Maps</span>
-            </a>
+            {/* Corporate Hospital Service Partner (above Clinic Location) */}
+            <div className="footer__sub-block--top">
+              <h4 className="footer__heading">Corporate Hospital Service Partner</h4>
+              <ul className="footer__partners-sublist">
+                <li>
+                  <span className="footer__partner-bullet" aria-hidden="true" />
+                  <span>Sai Vita Life Hospital, Wakad</span>
+                </li>
+                <li>
+                  <span className="footer__partner-bullet" aria-hidden="true" />
+                  <span>Ankura Hospital, Wakad</span>
+                </li>
+                <li>
+                  <span className="footer__partner-bullet" aria-hidden="true" />
+                  <span>Asian Pacific Hospital, Hinjewadi</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Clinic Location */}
+            <div className="footer__sub-block">
+              <h4 className="footer__heading">Clinic Location</h4>
+              <p className="footer__address-text">{clinic.address}</p>
+              <p className="footer__timings-text">
+                <strong>Mon – Sat:</strong> 10:00 AM – 8:00 PM<br />
+                <span className="footer__muted">Sunday: By Appointment Only</span>
+              </p>
+              <a
+                href={clinic.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer__maps-link"
+              >
+                <Icon name="pin" size={14} />
+                <span>Directions on Google Maps</span>
+              </a>
+            </div>
           </div>
         </div>
 
