@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
                       href="https://simplehearingandspeechcare.in"
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: "var(--blue)", textDecoration: "underline" }}
+                      style={{ color: "var(--blue)", textDecoration: "underline", wordBreak: "break-word" }}
                     >
                       https://simplehearingandspeechcare.in
                     </a>

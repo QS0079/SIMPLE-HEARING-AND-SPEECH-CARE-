@@ -8,7 +8,7 @@ export default function MobileBar() {
   const { open } = useEnquiry();
   return (
     <div className="mobilebar">
-      <a href={clinic.phoneHref} className="mobilebar__btn" aria-label={`Call ${clinic.phoneDisplay}`}>
+      <a href={clinic.phoneHref} className="mobilebar__btn mobilebar__btn--call" aria-label={`Call ${clinic.phoneDisplay}`}>
         <Icon name="phone" size={18} />
         <span>Call</span>
       </a>
@@ -16,7 +16,8 @@ export default function MobileBar() {
         href={`https://wa.me/${clinic.whatsapp}?text=${encodeURIComponent("Hello, I would like to know more about your services.")}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="mobilebar__btn"
+        className="mobilebar__btn mobilebar__btn--wa"
+        aria-label="Chat on WhatsApp"
       >
         <Icon name="whatsapp" size={18} />
         <span>WhatsApp</span>

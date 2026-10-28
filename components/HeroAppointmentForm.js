@@ -83,23 +83,25 @@ export default function HeroAppointmentForm() {
 
   return (
     <div className="hero-form-card" id="appointment-form">
-      <div className="hero-form-card__header">
-        <span className="eyebrow">Direct Appointment Booking</span>
-        <h3 className="hero-form-card__title">Book Your Consultation</h3>
-        <p className="hero-form-card__sub">
-          Fill in your details below to schedule your consultation with our specialist.
-        </p>
-      </div>
+      {!sent && (
+        <div className="hero-form-card__header">
+          <span className="eyebrow">Direct Appointment Booking</span>
+          <h3 className="hero-form-card__title">Book Your Consultation</h3>
+          <p className="hero-form-card__sub">
+            Fill in your details below to schedule your consultation with our specialist.
+          </p>
+        </div>
+      )}
 
       {sent ? (
         <div className="hero-form-card__success">
           <div className="hero-form-card__success-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="34" height="34">
+            <svg viewBox="0 0 24 24" width="32" height="32">
               <path
                 d="M5 12.5l4.2 4.2L19 7"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2.4"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -107,13 +109,13 @@ export default function HeroAppointmentForm() {
           </div>
           <h4>Appointment Request Received!</h4>
           <p>
-            Thank you, <strong>{lead?.name || "Patient"}</strong>. Your consultation request for <strong>{lead?.service || "Care"}</strong> has been received. Our clinical specialist will call you at <strong>{lead?.phone}</strong> shortly to confirm your time slot.
+            Thank you, <strong>{lead?.name || "Patient"}</strong>. Your consultation request for <strong>{lead?.service || "Care"}</strong> has been received. Our clinical specialist will call you at <strong className="hero-form-card__phone-no">{lead?.phone}</strong> shortly to confirm your time slot.
           </p>
           <div className="hero-form-card__success-alt">
             <span>Need immediate assistance?</span>
-            <a href={clinic.phoneHref} className="hero-form-card__call-link">
+            <a href={clinic.phoneHref} className="hero-form-card__call-link" aria-label={`Call clinic at ${clinic.phoneDisplay}`}>
               <Icon name="phone" size={15} />
-              <span>{clinic.phoneDisplay}</span>
+              <span className="hero-form-card__phone-no">{clinic.phoneDisplay}</span>
             </a>
           </div>
           <div className="hero-form-card__countdown-pill">
@@ -242,9 +244,9 @@ export default function HeroAppointmentForm() {
           </button>
 
           <div className="hero-form__footer">
-            <a href={clinic.phoneHref} className="hero-form__call">
+            <a href={clinic.phoneHref} className="hero-form__call" aria-label={`Call ${clinic.phoneDisplay}`}>
               <Icon name="phone" size={13} />
-              <span>Prefer to call? {clinic.phoneDisplay}</span>
+              <span>Prefer to call? <strong className="hero-form__phone-no">{clinic.phoneDisplay}</strong></span>
             </a>
           </div>
         </form>
